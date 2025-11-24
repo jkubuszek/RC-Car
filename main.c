@@ -1,4 +1,9 @@
+#include "MKL05Z4.h"
+#include "InitPWM.c"
+
+
 int main(){
-    int n = 1;
+    InitPWM();
+    
     return 0;
 }
