@@ -11,6 +11,6 @@ SIM->SCGC4 |= SIM_SCGC4_LPUART0_MASK; //Enable LPUART0 clock
 SIM->SOPT2 |= SIM_SOPT2_LPUART0SRC(1); //Set UART clock source = MCGFLLCLK=41943040Hz
 
 LPUART0->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK); //Disable TX and RX for baud rate change
-LPUART0->BAUD = LPUART_BAUD_SBR(312); //Set 9600 baud rate
+LPUART0->BAUD = LPUART_BAUD_SBR(312); //Set 9600 baud rate, SBR = f_clock/(OSR*baud_rate); OSR = 16 by default
 LPUART0->CTRL = LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK; //Enable TX and RX back again
 }
