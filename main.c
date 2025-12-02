@@ -25,10 +25,10 @@ void LPUART0_IRQHandler(void) {
 
     if (status & LPUART_STAT_RDRF_MASK) { //checking if a full byte arrived
         uint8_t received_byte = LPUART0->DATA; //storing received byte
-        if (!message_ready && (rx_count < MESSAGE_LENGTH)) { //if not full message
-            rx_buffer[rx_count] = received_byte; //store to buffer at correct index
-            rx_count++;
-            if (rx_count == MESSAGE_LENGTH) { //if full message
+        if (!message_ready && (buff_index < RX_BUFFER_SIZE)) { //if not full message
+            rx_buffer[buff_index] = received_byte; //store to buffer at correct index
+            buff_index++;
+            if (buff_index == RX_BUFFER_SIZE) { //if full message
                 message_ready = true; 
                 buff_index = 0; //reset index for new message
                 LPUART0->CTRL &= ~LPUART_CTRL_RIE_MASK; //disable rx interrupts

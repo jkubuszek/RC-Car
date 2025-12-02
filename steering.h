@@ -2,11 +2,11 @@
 #include "InitDrive.h" 
 
 void steer(){
-    int8_t rspeed, lspeed;
+    int16_t rspeed, lspeed;
     bool forward = (rx_buffer[0] == 'F'); //checking if we go forward
     bool right = (rx_buffer[3] == 'R'); //checking if we go right
-    uint8_t speed = (rx_buffer[1]-'0')*10 + (rx_buffer[2]-'0'); //getting the speed value out of buffer
-    uint8_t steer = (rx_buffer[4]-'0')*10 + (rx_buffer[5]-'0'); //getting the steering value out of buffer
+    uint16_t speed = (rx_buffer[1]-'0')*10 + (rx_buffer[2]-'0'); //getting the speed value out of buffer
+    uint16_t steer = (rx_buffer[4]-'0')*10 + (rx_buffer[5]-'0'); //getting the steering value out of buffer
 
     bool rfwd = forward; //set directions
     bool lfwd = forward;
@@ -38,7 +38,7 @@ void steer(){
     }
     
     //right engine PWM - PTB5 -> TPM1_CH1
-    TPM1->sCONTROLS[1].CnV = abs(rspeed*26/100);
+    TPM1->CONTROLS[1].CnV = abs(rspeed*26/100);
     //left engine PWM - PTA12 -> TPM0_CH3
-    TPM0->CONTROLS[3].CnV = abs(lspeed*26/100);
+    TPM1->CONTROLS[0].CnV = abs(lspeed*26/100);
 }
