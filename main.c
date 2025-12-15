@@ -8,13 +8,19 @@ volatile char rx_buffer[RX_BUFFER_SIZE];
 volatile uint8_t buff_index = 0;
 volatile uint8_t message_ready = 0;
 
-
 int main(){
     InitPWM();
     InitUART();
     InitDrive();
+    // __enable_irq();
+
     while(1){
-        //nop
+        if(message_ready == 1){
+            steer();
+            message_ready = 0; 
+            buff_index = 0;
+            UART0->C2 |= UART0_C2_RIE_MASK;
+        }
     }
     return 0;
 }
@@ -36,10 +42,10 @@ void UART0_IRQHandler(void) {
         }
     }
 
-    if(message_ready){
-        steer();
-        UART0->C2 |= UART0_C2_RIE_MASK;	 //enable rx interrupts back again
-    }
+    // if(message_ready){
+    //     steer();
+    //     UART0->C2 |= UART0_C2_RIE_MASK;	 //enable rx interrupts back again
+    // }
 
 
 

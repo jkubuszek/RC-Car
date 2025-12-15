@@ -1,7 +1,7 @@
 #include "InitDrive.h"
 
 void InitDrive(void){
-    //SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK; //already done in InitPWM.h	
+    SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK; //already done in InitPWM.h	
 
     PORTB->PCR[rforward] |= PORT_PCR_MUX(1);
     PORTB->PCR[rreverse] |= PORT_PCR_MUX(1);
