@@ -13,7 +13,7 @@ void InitPWM(){
 	
 	TPM1->SC &= ~TPM_SC_CPWMS_MASK;		//	TPM1 counting forwards
 	TPM1->SC |= TPM_SC_PS(6);	//	clock divider = 64; clock=655360Hz
-	TPM1->MOD = 25;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
+	TPM1->MOD = 1000;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
 
 	//right engine
 	TPM1->CONTROLS[1].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSA_MASK;	//	TPM1 - Edge-aligned PWM Low-true pulses (set Output on match, clear Output on reload)

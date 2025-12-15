@@ -13,6 +13,7 @@ void InitDrive(void){
     PORTB->PCR[lreverse] |= PORT_PCR_MUX(1);
 
     PTB->PDDR |= (rforward_mask | rreverse_mask | lforward_mask | lreverse_mask);
+    PTB->PCOR = rforward_mask | rreverse_mask | lforward_mask | lreverse_mask;
 }
 
 
@@ -27,7 +28,7 @@ FILE PATH: ./InitDrive.h
 
 #define rforward_mask (1<<10) 
 #define rreverse_mask (1<<11) 
-#define lforward_mask (1<<12) 
+#define lforward_mask (1<<8) 
 #define lreverse_mask (1<<13)
 
 void InitDrive(void);
@@ -53,7 +54,7 @@ void InitPWM(){
 	
 	TPM1->SC &= ~TPM_SC_CPWMS_MASK;		//	TPM1 counting forwards
 	TPM1->SC |= TPM_SC_PS(6);	//	clock divider = 64; clock=655360Hz
-	TPM1->MOD = 25;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
+	TPM1->MOD = 1000;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
 
 	//right engine
 	TPM1->CONTROLS[1].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSA_MASK;	//	TPM1 - Edge-aligned PWM Low-true pulses (set Output on match, clear Output on reload)
@@ -87,8 +88,8 @@ void InitUART(void){
 	SIM->SCGC4 |= SIM_SCGC4_UART0_MASK;							
 	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK;							
 	SIM->SOPT2 |= SIM_SOPT2_UART0SRC(MCGFLLCLK);		
-	PORTB->PCR[1] = PORT_PCR_MUX(2);								
-	PORTB->PCR[2] = PORT_PCR_MUX(2);								
+	PORTB->PCR[1] |= PORT_PCR_MUX(2);								
+	PORTB->PCR[2] |= PORT_PCR_MUX(2);								
 	
 	UART0->C2 &= ~(UART0_C2_TE_MASK | UART0_C2_RE_MASK );		
 	UART0->BDH = 0;
@@ -159,26 +160,24 @@ void UART0_IRQHandler(void) {
 
     if (status & UART0_S1_RDRF_MASK) { //checking if a full byte arrived
         uint8_t received_byte = UART0->D; //storing received byte
-            if (status & UART0_S1_RDRF_MASK) {
-                uint8_t received_byte = UART0->D;
-                if (received_byte == '\n') { 
-                    message_ready = 1;
+            if (received_byte == '\n') { 
+                 message_ready = 1;
 
-                    if (buff_index < RX_BUFFER_SIZE) {
-                        rx_buffer[buff_index] = '\0'; 
-                    }
-                    
-                    buff_index = 0;
-
-                } else {
-                    if (buff_index < (RX_BUFFER_SIZE - 1)) {
-                        rx_buffer[buff_index] = received_byte;
-                        buff_index++;
-                    }
+                if (buff_index < RX_BUFFER_SIZE) {
+                    rx_buffer[buff_index] = '\0'; 
                 }
-        }
+                    
+                buff_index = 0;
+
+            } else {
+                if (buff_index < (RX_BUFFER_SIZE - 1)) {
+                    rx_buffer[buff_index] = received_byte;
+                    buff_index++;
+                }
+            }
     }
 }
+
 
 
 ==================================================
@@ -224,10 +223,14 @@ void steer(){
         PTB->PSOR |= lreverse_mask;
     }
     
+    if (rspeed > 100) rspeed = 100;
+    if (rspeed < -100) rspeed = -100;
+    if (lspeed > 100) lspeed = 100;
+    if (lspeed < -100) lspeed = -100;
     //right engine PWM - PTB5 -> TPM1_CH1
-    TPM1->CONTROLS[1].CnV = abs(rspeed*26/100);
+    TPM1->CONTROLS[1].CnV = abs(rspeed*10);
     //left engine PWM - PTA12 -> TPM0_CH3
-    TPM1->CONTROLS[0].CnV = abs(lspeed*26/100);
+    TPM1->CONTROLS[0].CnV = abs(lspeed*10);
 }
 
 

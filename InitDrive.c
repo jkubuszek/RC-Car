@@ -10,4 +10,5 @@ void InitDrive(void){
     PORTB->PCR[lreverse] |= PORT_PCR_MUX(1);
 
     PTB->PDDR |= (rforward_mask | rreverse_mask | lforward_mask | lreverse_mask);
+    PTB->PCOR = rforward_mask | rreverse_mask | lforward_mask | lreverse_mask;
 }

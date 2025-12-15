@@ -38,8 +38,12 @@ void steer(){
         PTB->PSOR |= lreverse_mask;
     }
     
+    if (rspeed > 100) rspeed = 100;
+    if (rspeed < -100) rspeed = -100;
+    if (lspeed > 100) lspeed = 100;
+    if (lspeed < -100) lspeed = -100;
     //right engine PWM - PTB5 -> TPM1_CH1
-    TPM1->CONTROLS[1].CnV = abs(rspeed*26/100);
-    //left engine PWM - PTA12 -> TPM0_CH3
-    TPM1->CONTROLS[0].CnV = abs(lspeed*26/100);
+    TPM1->CONTROLS[1].CnV = abs(rspeed*1667/100);
+    //left engine PWM - PTA12 -> TPM1_CH0
+    TPM1->CONTROLS[0].CnV = abs(lspeed*1667/100);
 }
