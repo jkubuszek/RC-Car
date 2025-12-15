@@ -1,0 +1,9 @@
+#include "MKL05Z4.h"
+
+#define RX_BUFFER_SIZE 32
+extern volatile char rx_buffer[RX_BUFFER_SIZE]; //buffer 
+extern volatile uint8_t buff_index; 
+extern volatile uint8_t message_ready;
+
+void steer(void);
+

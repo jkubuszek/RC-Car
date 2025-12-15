@@ -5,9 +5,9 @@
 |aquirng the nessary electronic parts|28.10.2025|27.10.2025|
 |configuring git|28.10.2025|28.10.2025|
 |making the chassis|04.11.2025|work in progress|
-|finding an android app for control|11.11.2025|work in progress|
-|making a bluetooth communication|14.11.2025|work in progress|
+|finding an android app for control|11.11.2025|5.11.2025|
+|making a bluetooth communication|14.11.2025|02.12.2025|
 |making pcb with H-bridge|21.11.2025|work in progress|
-|making program for motors|28.11.2025|work in progress|
+|making program for motors|28.11.2025|02.12.2025|
 |making complementary programm for microcontroler|05.12.2025|work in progress|
 |creating special functions|12.12.2025|work in progress|
