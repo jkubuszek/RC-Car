@@ -4,10 +4,12 @@
 
 void steer(){
     int16_t rspeed, lspeed;
+    uint8_t stop = (rx_buffer[0] == 'Z'); //checking if we stop
     uint8_t forward = (rx_buffer[0] == 'F'); //checking if we go forward
     uint8_t right = (rx_buffer[3] == 'R'); //checking if we go right
     uint16_t speed = (rx_buffer[1]-'0')*10 + (rx_buffer[2]-'0'); //getting the speed value out of buffer
     uint16_t steer = (rx_buffer[4]-'0')*10 + (rx_buffer[5]-'0'); //getting the steering value out of buffer
+    
 
     uint8_t rfwd = forward; //set directions
     uint8_t lfwd = forward;
@@ -42,6 +44,11 @@ void steer(){
     if (rspeed < -100) rspeed = -100;
     if (lspeed > 100) lspeed = 100;
     if (lspeed < -100) lspeed = -100;
+
+    if (stop == 1){
+        rspeed = 0;
+        lspeed = 0;
+    }
     //right engine PWM - PTB5 -> TPM1_CH1
     TPM1->CONTROLS[1].CnV = abs(rspeed*1667/100);
     //left engine PWM - PTA12 -> TPM1_CH0
