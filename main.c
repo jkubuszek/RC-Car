@@ -36,23 +36,20 @@ void UART0_IRQHandler(void) {
 
     if (status & UART0_S1_RDRF_MASK) { //checking if a full byte arrived
         uint8_t received_byte = UART0->D; //storing received byte
-            if (status & UART0_S1_RDRF_MASK) {
-                uint8_t received_byte = UART0->D;
-                if (received_byte == '\n') { 
-                    message_ready = 1;
+            if (received_byte == '\n') { 
+                 message_ready = 1;
 
-                    if (buff_index < RX_BUFFER_SIZE) {
-                        rx_buffer[buff_index] = '\0'; 
-                    }
-                    
-                    buff_index = 0;
-
-                } else {
-                    if (buff_index < (RX_BUFFER_SIZE - 1)) {
-                        rx_buffer[buff_index] = received_byte;
-                        buff_index++;
-                    }
+                if (buff_index < RX_BUFFER_SIZE) {
+                    rx_buffer[buff_index] = '\0'; 
                 }
-        }
+                    
+                buff_index = 0;
+
+            } else {
+                if (buff_index < (RX_BUFFER_SIZE - 1)) {
+                    rx_buffer[buff_index] = received_byte;
+                    buff_index++;
+                }
+            }
     }
 }
