@@ -3,11 +3,9 @@
 #include "InitUART.h"
 #include "steering.h"
 #include <string.h>
+#include <stdbool.h>
 
-#define RX_BUFFER_SIZE 10 
-volatile char rx_buffer[RX_BUFFER_SIZE]; //buffer 
-volatile uint8_t buff_index = 0; 
-volatile bool message_ready = false;
+
 
 int main(){
     InitPWM();

@@ -1,20 +1,26 @@
 #include "MKL05Z4.h"
+#define CLK_DIS 					0x00
+#define MCGFLLCLK 		    		0x01
+#define OSCERCLK					0x02
+#define MCGIRCLK					0x03
 #define TX_pin 1 //PORTB1 = TX
 #define RX_pin 2 //PORTB2 = RX
 
-void InitUART(){
-//SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK; // Enable PORTB clock, RX and TX are there. this is already in InitPWM.c
-PORTB->PCR[RX_pin] = PORT_PCR_MUX(2); //LPUART0_RX (MUX = 2)
-PORTB->PCR[TX_pin] = PORT_PCR_MUX(2); //LPUART0_TX (MUX = 2)
-
-SIM->SCGC4 |= SIM_SCGC4_LPUART0_MASK; //Enable LPUART0 clock
-SIM->SOPT2 |= SIM_SOPT2_LPUART0SRC(1); //Set UART clock source = MCGFLLCLK=41943040Hz
-
-LPUART0->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK); //Disable TX and RX for baud rate change
-LPUART0->BAUD = LPUART_BAUD_SBR(312); //Set 9600 baud rate, SBR = f_clock/(OSR*baud_rate); OSR = 16 by default
-LPUART0->CTRL = LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK; //Enable TX and RX back again
-
-LPUART0->CTRL |= LPUART_CTRL_RDRFIE_MASK; //enable RX pin interrupt
-
-NVIC_EnableIRQ(LPUART0_IRQn); //enable UART interrupts
+void UART0_Init(void)
+{
+	SIM->SCGC4 |= SIM_SCGC4_UART0_MASK;							
+	SIM->SCGC5 |= SIM_SCGC5_PORTB_MASK;							
+	SIM->SOPT2 |= SIM_SOPT2_UART0SRC(MCGFLLCLK);		
+	PORTB->PCR[1] = PORT_PCR_MUX(2);								
+	PORTB->PCR[2] = PORT_PCR_MUX(2);								
+	
+	UART0->C2 &= ~(UART0_C2_TE_MASK | UART0_C2_RE_MASK );		
+	UART0->BDH = 0;
+	UART0->BDL =272;		
+	UART0->C4 = UART0_C4_OSR(15);	
+	UART0->C5 |= UART0_C5_BOTHEDGE_MASK;	
+	UART0->C2 |= UART0_C2_RIE_MASK;		
+	UART0->C2 |= (UART0_C2_TE_MASK | UART0_C2_RE_MASK);		
+	NVIC_EnableIRQ(UART0_IRQn);
+	NVIC_ClearPendingIRQ(UART0_IRQn);
 }
