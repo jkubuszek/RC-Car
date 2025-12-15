@@ -6,4 +6,5 @@
 #define TX_pin 1 //PORTB1 = TX
 #define RX_pin 2 //PORTB2 = RX
 
+void InitUART(void);
 

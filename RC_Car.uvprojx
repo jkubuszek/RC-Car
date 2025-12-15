@@ -10,6 +10,7 @@
       <TargetName>FRDM_KL05ZJ</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -386,6 +387,26 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitDrive.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InitDrive.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitPWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InitPWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitUART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InitUART.c</FilePath>
+            </File>
+            <File>
+              <FileName>steering.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\steering.c</FilePath>
             </File>
           </Files>
         </Group>

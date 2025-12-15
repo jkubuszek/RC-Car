@@ -7,5 +7,7 @@
 #define rforward_mask (1<<10) 
 #define rreverse_mask (1<<11) 
 #define lforward_mask (1<<12) 
-#define lreverse_mask (1<<13) 
+#define lreverse_mask (1<<13)
+
+void InitDrive(void);
 

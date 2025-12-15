@@ -27,144 +27,35 @@ Project File Date:  12/15/2025
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'FRDM_KL05ZJ'
-main.c(2): warning: In file included from...
-./InitPWM.h(5): warning: no previous prototype for function 'InitPWM' [-Wmissing-prototypes]
-void InitPWM()
-     ^
-./InitPWM.h(5): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void InitPWM()
-^
-static 
-./InitPWM.h(5): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void InitPWM()
-            ^
-main.c(3): warning: In file included from...
-./InitUART.h(9): warning: no previous prototype for function 'UART0_Init' [-Wmissing-prototypes]
-void UART0_Init(void)
-     ^
-./InitUART.h(9): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void UART0_Init(void)
-^
-static 
-./InitUART.h(19): warning: implicit conversion from 'int' to 'uint8_t' (aka 'unsigned char') changes value from 272 to 16 [-Wconstant-conversion]
-        UART0->BDL =272;                
-                   ~^~~
-main.c(4): warning: In file included from...
-./steering.h(2): warning: In file included from...
-./InitDrive.h(22): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-./InitDrive.h(12): warning: no previous prototype for function 'InitDrive' [-Wmissing-prototypes]
-void InitDrive(){
-     ^
-./InitDrive.h(12): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void InitDrive(){
-^
-static 
-./InitDrive.h(12): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void InitDrive(){
-              ^
-main.c(4): warning: In file included from...
-./steering.h(7): warning: no previous extern declaration for non-static variable 'buff_index' [-Wmissing-variable-declarations]
-uint8_t buff_index = 0; 
-        ^
-./steering.h(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t buff_index = 0; 
-^
-./steering.h(8): warning: no previous extern declaration for non-static variable 'message_ready' [-Wmissing-variable-declarations]
-bool message_ready = false;
-     ^
-./steering.h(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-bool message_ready = false;
-^
-C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
-    #define bool _Bool
-                 ^
-main.c(4): warning: In file included from...
-./steering.h(21): warning: implicit conversion changes signedness: 'int' to 'int16_t' (aka 'short') [-Wsign-conversion]
-        lspeed = speed + steer; //left enginge must go faster
-               ~ ~~~~~~^~~~~~~
-./steering.h(22): warning: implicit conversion changes signedness: 'int' to 'int16_t' (aka 'short') [-Wsign-conversion]
-        rspeed = speed - steer; //right engine must go slower
-               ~ ~~~~~~^~~~~~~
-./steering.h(25): warning: implicit conversion changes signedness: 'int' to 'int16_t' (aka 'short') [-Wsign-conversion]
-        lspeed = speed - steer; //left enginge must go slower
-               ~ ~~~~~~^~~~~~~
-./steering.h(26): warning: implicit conversion changes signedness: 'int' to 'int16_t' (aka 'short') [-Wsign-conversion]
-        rspeed = speed + steer; //right engine must go faster
-               ~ ~~~~~~^~~~~~~
-./steering.h(47): warning: implicitly declaring library function 'abs' with type 'int (int)' [-Wimplicit-function-declaration]
-    TPM1->CONTROLS[1].CnV = abs(rspeed*26/100);
-                            ^
-./steering.h(47): note: include the header <stdlib.h> or explicitly provide a declaration for 'abs'
-./steering.h(47): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-    TPM1->CONTROLS[1].CnV = abs(rspeed*26/100);
-                          ~ ^~~~~~~~~~~~~~~~~~
-./steering.h(49): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-    TPM1->CONTROLS[0].CnV = abs(lspeed*26/100);
-                          ~ ^~~~~~~~~~~~~~~~~~
-./steering.h(50): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-./steering.h(10): warning: no previous prototype for function 'steer' [-Wmissing-prototypes]
-void steer(){
-     ^
-./steering.h(10): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void steer(){
-^
-static 
-./steering.h(10): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void steer(){
-          ^
-main.c(12): warning: implicit declaration of function 'InitUART' is invalid in C99 [-Wimplicit-function-declaration]
-    InitUART();
+main.c(15): warning: implicit declaration of function 'InitDrive' is invalid in C99 [-Wimplicit-function-declaration]
+    InitDrive();
     ^
-main.c(17): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(19): warning: 'return' will never be executed [-Wunreachable-code-return]
     return 0;
            ^
-main.c(22): error: use of undeclared identifier 'LPUART0'
-    uint32_t status = LPUART0->STAT; //reading LPUART0 status flags
-                      ^
-main.c(24): error: use of undeclared identifier 'LPUART_STAT_RDRF_MASK'
-    if (status & LPUART_STAT_RDRF_MASK) { //checking if a full byte arrived
-                 ^
-main.c(25): error: use of undeclared identifier 'LPUART0'
-        uint8_t received_byte = LPUART0->DATA; //storing received byte
-                                ^
-main.c(32): error: use of undeclared identifier 'LPUART0'
-                LPUART0->CTRL &= ~LPUART_CTRL_RIE_MASK; //disable rx interrupts
-                ^
-main.c(32): error: use of undeclared identifier 'LPUART_CTRL_RIE_MASK'
-                LPUART0->CTRL &= ~LPUART_CTRL_RIE_MASK; //disable rx interrupts
-                                  ^
-main.c(39): error: use of undeclared identifier 'LPUART0'
-        LPUART0->CTRL |= LPUART_CTRL_RIE_MASK; //enable rx interrupts back again
-        ^
-main.c(39): error: use of undeclared identifier 'LPUART_CTRL_RIE_MASK'
-        LPUART0->CTRL |= LPUART_CTRL_RIE_MASK; //enable rx interrupts back again
-                         ^
-main.c(44): warning: no newline at end of file [-Wnewline-eof]
+main.c(34): warning: empty expression statement has no effect; remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+                UART0->C2 &= ~UART0_C2_RIE_MASK;        ; //disable rx interrupts
+                                                        ^~
+main.c(46): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-main.c(20): warning: no previous prototype for function 'LPUART0_IRQHandler' [-Wmissing-prototypes]
-void LPUART0_IRQHandler(void) {
+main.c(22): warning: no previous prototype for function 'UART0_IRQHandler' [-Wmissing-prototypes]
+void UART0_IRQHandler(void) {
      ^
-main.c(20): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void LPUART0_IRQHandler(void) {
+main.c(22): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_IRQHandler(void) {
 ^
 static 
-main.c(4): warning: In file included from...
-./steering.h(6): warning: no previous extern declaration for non-static variable 'rx_buffer' [-Wmissing-variable-declarations]
-char rx_buffer[RX_BUFFER_SIZE]; //buffer 
-     ^
-./steering.h(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-char rx_buffer[RX_BUFFER_SIZE]; //buffer 
-^
-24 warnings and 7 errors generated.
+5 warnings generated.
 compiling main.c...
-compiling system_MKL05Z4.c...
-assembling startup_MKL05Z4.s...
-".\Objects\RC_Car.axf" - 7 Error(s), 24 Warning(s).
+InitPWM.c(27): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+1 warning generated.
+compiling InitPWM.c...
+linking...
+Program Size: Code=1528 RO-data=236 RW-data=0 ZI-data=368  
+".\Objects\RC_Car.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -192,7 +83,6 @@ Package Vendor: Keil
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\system_MKL05Z4.c
       Source file:   Device\Source\ARM\startup_MKL05Z4.s
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

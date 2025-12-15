@@ -1,5 +1,6 @@
 #include "steering.h"
 #include "InitDrive.h"
+#include <stdlib.h>
 
 void steer(){
     int16_t rspeed, lspeed;
