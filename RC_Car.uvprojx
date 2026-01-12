@@ -408,6 +408,31 @@
               <FileType>1</FileType>
               <FilePath>.\steering.c</FilePath>
             </File>
+            <File>
+              <FileName>light.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\light.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitLight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InitLight.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitPID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InitPID.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>PIDreg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PIDreg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -432,6 +457,36 @@
               <FileName>steering.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\steering.h</FilePath>
+            </File>
+            <File>
+              <FileName>light.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\light.h</FilePath>
+            </File>
+            <File>
+              <FileName>InitLight.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\InitLight.h</FilePath>
+            </File>
+            <File>
+              <FileName>InitPID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\InitPID.h</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\i2c.h</FilePath>
+            </File>
+            <File>
+              <FileName>frdm_bsp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\frdm_bsp.h</FilePath>
+            </File>
+            <File>
+              <FileName>PIDreg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\PIDreg.h</FilePath>
             </File>
           </Files>
         </Group>

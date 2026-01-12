@@ -4,10 +4,11 @@
 extern volatile char rx_buffer[RX_BUFFER_SIZE]; //buffer 
 extern volatile uint8_t buff_index; 
 extern volatile uint8_t message_ready;
-extern volatile uint8_t right;
-extern volatile uint16_t speed;
-extern volatile uint16_t steer;
-extern volatile uint8_t steer_ext;
+extern volatile uint8_t sekunda_OK;
+extern volatile uint16_t lb_active;
+extern volatile uint16_t rb_active;
 
-void steering(void);
 
+void light(void);
+
+void blinker(void);

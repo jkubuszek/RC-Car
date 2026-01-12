@@ -4,6 +4,11 @@
 ".\objects\initpwm.o"
 ".\objects\inituart.o"
 ".\objects\steering.o"
+".\objects\light.o"
+".\objects\initlight.o"
+".\objects\initpid.o"
+".\objects\i2c.o"
+".\objects\pidreg.o"
 ".\objects\startup_mkl05z4.o"
 ".\objects\system_mkl05z4.o"
 --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x1FFFFC00 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
