@@ -21,6 +21,7 @@ void InitDrive(void){
 FILE PATH: ./InitDrive.h
 ==================================================
 #include "MKL05Z4.h"
+
 #define rforward 10 //PTB10 
 #define rreverse 11 //PTB11 
 #define lforward 8 //PTB8
@@ -53,15 +54,15 @@ void InitPWM(){
 	SIM->SOPT2 |= SIM_SOPT2_TPMSRC(1);		// clock source = TPMx MCGFLLCLK=41943040Hz
 	
 	TPM1->SC &= ~TPM_SC_CPWMS_MASK;		//	TPM1 counting forwards
-	TPM1->SC |= TPM_SC_PS(6);	//	clock divider = 64; clock=655360Hz
-	TPM1->MOD = 1000;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
+	TPM1->SC |= TPM_SC_PS(0);	//	clock divider = 64; clock=655360Hz
+	TPM1->MOD = 1677;		//	 MODULO=25 - f_pwm=25kHz (we need 25kHz to eliminate irritating sounds the car may make)
 
 	//right engine
-	TPM1->CONTROLS[1].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSA_MASK;	//	TPM1 - Edge-aligned PWM Low-true pulses (set Output on match, clear Output on reload)
+	TPM1->CONTROLS[1].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSB_MASK;	
 	TPM1->CONTROLS[1].CnV = 0x0000;					// fill factor = 0
 
 	//left engine
-	TPM1->CONTROLS[0].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSA_MASK;	//	TPM1 - Edge-aligned PWM Low-true pulses (set Output on match, clear Output on reload)
+	TPM1->CONTROLS[0].CnSC = TPM_CnSC_MSB_MASK|TPM_CnSC_ELSB_MASK;	
 	TPM1->CONTROLS[0].CnV = 0x0000;					// fill factor = 0
 
 	TPM1->SC |= TPM_SC_CMOD(1);						// Enable TPM1
@@ -92,8 +93,8 @@ void InitUART(void){
 	PORTB->PCR[2] |= PORT_PCR_MUX(2);								
 	
 	UART0->C2 &= ~(UART0_C2_TE_MASK | UART0_C2_RE_MASK );		
-	UART0->BDH = 0;
-	UART0->BDL =272;		
+	UART0->BDH = 1;
+	UART0->BDL =16;		
 	UART0->C4 = UART0_C4_OSR(15);	
 	UART0->C5 |= UART0_C5_BOTHEDGE_MASK;	
 	UART0->C2 |= UART0_C2_RIE_MASK;		
@@ -189,10 +190,12 @@ FILE PATH: ./steering.c
 
 void steer(){
     int16_t rspeed, lspeed;
+    uint8_t stop = (rx_buffer[0] == 'Z'); //checking if we stop
     uint8_t forward = (rx_buffer[0] == 'F'); //checking if we go forward
     uint8_t right = (rx_buffer[3] == 'R'); //checking if we go right
     uint16_t speed = (rx_buffer[1]-'0')*10 + (rx_buffer[2]-'0'); //getting the speed value out of buffer
     uint16_t steer = (rx_buffer[4]-'0')*10 + (rx_buffer[5]-'0'); //getting the steering value out of buffer
+    
 
     uint8_t rfwd = forward; //set directions
     uint8_t lfwd = forward;
@@ -227,10 +230,15 @@ void steer(){
     if (rspeed < -100) rspeed = -100;
     if (lspeed > 100) lspeed = 100;
     if (lspeed < -100) lspeed = -100;
+
+    if (stop == 1){
+        rspeed = 0;
+        lspeed = 0;
+    }
     //right engine PWM - PTB5 -> TPM1_CH1
-    TPM1->CONTROLS[1].CnV = abs(rspeed*10);
-    //left engine PWM - PTA12 -> TPM0_CH3
-    TPM1->CONTROLS[0].CnV = abs(lspeed*10);
+    TPM1->CONTROLS[1].CnV = abs(rspeed*1667/100);
+    //left engine PWM - PTA12 -> TPM1_CH0
+    TPM1->CONTROLS[0].CnV = abs(lspeed*1667/100);
 }
 
 
