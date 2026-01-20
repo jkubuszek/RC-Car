@@ -29,6 +29,8 @@ volatile uint8_t right=0;
 volatile uint16_t speed=0;
 volatile uint16_t steer=0;
 volatile uint8_t steer_ext = 0;
+volatile int16_t z1 = 0;
+volatile uint8_t forward = 0;
 
 int main(){
     InitPWM();
@@ -53,16 +55,31 @@ int main(){
             // UART0->C2 |= UART0_C2_RIE_MASK;
         }
 				PIDreg();
-				if(!right){
-					//right engine PWM - PTB5 -> TPM1_CH1
-					TPM1->CONTROLS[1].CnV = speed*1667/100;
-					//left engine PWM - PTA12 -> TPM1_CH0
-					TPM1->CONTROLS[0].CnV = speed*(60-steer)*1667/600;
+				if(!forward){
+					if(right){
+						//right engine PWM - PTB5 -> TPM1_CH1
+						TPM1->CONTROLS[1].CnV = speed*1667/100;
+						//left engine PWM - PTA12 -> TPM1_CH0
+						TPM1->CONTROLS[0].CnV = speed*(60-steer)*1667/600;
+					}else{
+						//right engine PWM - PTB5 -> TPM1_CH1
+						TPM1->CONTROLS[1].CnV = speed*(60-steer)*1667/600;
+						//left engine PWM - PTA12 -> TPM1_CH0
+						TPM1->CONTROLS[0].CnV = speed*1667/100;
+					}
+					
 				}else{
-					//right engine PWM - PTB5 -> TPM1_CH1
-					TPM1->CONTROLS[1].CnV = speed*(60-steer)*1667/600;
-					//left engine PWM - PTA12 -> TPM1_CH0
-					TPM1->CONTROLS[0].CnV = speed*1667/100;
+					if(!right){
+						//right engine PWM - PTB5 -> TPM1_CH1
+						TPM1->CONTROLS[1].CnV = speed*1667/100;
+						//left engine PWM - PTA12 -> TPM1_CH0
+						TPM1->CONTROLS[0].CnV = speed*(60-steer)*1667/600;
+					}else{
+						//right engine PWM - PTB5 -> TPM1_CH1
+						TPM1->CONTROLS[1].CnV = speed*(60-steer)*1667/600;
+						//left engine PWM - PTA12 -> TPM1_CH0
+						TPM1->CONTROLS[0].CnV = speed*1667/100;
+					}
 				}
 				blinker();
     }

@@ -1,132 +1,0 @@
-Dependencies for Project 'RC_Car', Target 'FRDM_KL05ZJ': (DO NOT MODIFY !)
-CompilerVersion: 6160000::V6.16::ARMCLANG
-F (.\main.c)(0x6953DD64)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/main.o -MD)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (InitPWM.h)(0x693FA206)
-I (InitUART.h)(0x693FA206)
-I (InitLight.h)(0x6952D1A2)
-I (steering.h)(0x6953BEB2)
-I (light.h)(0x6952AF4E)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\string.h)(0x60355C30)
-I (InitPID.h)(0x6953DD64)
-I (frdm_bsp.h)(0x67096A0E)
-I (i2c.h)(0x659B23C0)
-I (PIDreg.h)(0x6953E6E6)
-F (.\InitDrive.c)(0x693FA206)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/initdrive.o -MD)
-I (InitDrive.h)(0x693FA206)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-F (.\InitPWM.c)(0x694030E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/initpwm.o -MD)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (InitPWM.h)(0x693FA206)
-F (.\InitUART.c)(0x693FA206)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/inituart.o -MD)
-I (InitUART.h)(0x693FA206)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-F (.\steering.c)(0x6953E51A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/steering.o -MD)
-I (steering.h)(0x6953BEB2)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (InitDrive.h)(0x693FA206)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdlib.h)(0x60355C30)
-F (.\light.c)(0x6952D4AC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/light.o -MD)
-I (light.h)(0x6952AF4E)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (InitLight.h)(0x6952D1A2)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdlib.h)(0x60355C30)
-F (.\InitLight.c)(0x6952D1A2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/initlight.o -MD)
-I (InitLight.h)(0x6952D1A2)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-F (.\InitPID.c)(0x6953E2B0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/initpid.o -MD)
-I (InitPID.h)(0x6953DD64)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (frdm_bsp.h)(0x67096A0E)
-I (i2c.h)(0x659B23C0)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdio.h)(0x60355C34)
-F (.\i2c.c)(0x68D28AA4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/i2c.o -MD)
-I (i2c.h)(0x659B23C0)
-I (frdm_bsp.h)(0x67096A0E)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-F (.\PIDreg.c)(0x6953E82A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/pidreg.o -MD)
-I (PIDreg.h)(0x6953E6E6)
-I (MKL05Z4.h)(0x693FA206)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)
-I (i2c.h)(0x659B23C0)
-I (frdm_bsp.h)(0x67096A0E)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdio.h)(0x60355C34)
-I (InitLight.h)(0x6952D1A2)
-F (.\InitDrive.h)(0x693FA206)()
-F (.\InitPWM.h)(0x693FA206)()
-F (.\InitUART.h)(0x693FA206)()
-F (.\steering.h)(0x6953BEB2)()
-F (.\light.h)(0x6952AF4E)()
-F (.\InitLight.h)(0x6952D1A2)()
-F (.\InitPID.h)(0x6953DD64)()
-F (.\i2c.h)(0x659B23C0)()
-F (.\frdm_bsp.h)(0x67096A0E)()
-F (.\PIDreg.h)(0x6953E6E6)()
-F (RTE\Device\MKL05Z32xxx4\startup_MKL05Z4.s)(0x693FA206)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL05Z32xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl05z4.o)
-F (RTE\Device\MKL05Z32xxx4\system_MKL05Z4.c)(0x693FA206)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_FRDM_KL05ZJ-IE:/miodz/AppData/local/Arm/pack/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IE:/miodz/AppData/local/Arm/pack/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL05Z32xxx4 -D_RTE_-o ./objects/system_mkl05z4.o -MD)
-I (E:\Program Files\keil\ARM\ARMCLANG\include\stdint.h)(0x60355C30)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\MKL05Z4.h)(0x585BDE7A)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D43D42)
-I (E:\miodz\AppData\local\Arm\pack\Keil\Kinetis_KLxx_DFP\1.15.1\Device\Include\system_MKL05Z4.h)(0x55FBCAE8)

@@ -15,7 +15,7 @@ void InitPID(void){
 	uint8_t data[]={0,0};
 	for(int j=0; j<=1024; j++){
 		I2C_ReadRegBlock(adres, 0x47, 3, data);
-		z = data[0]<<8 | data[1];
+		z = (int16_t)((data[0] << 8) | data[1]);
 		gyro_error += z;
 		DELAY(1)
 		if(z){PTA->PSOR |=(1<<7);}
