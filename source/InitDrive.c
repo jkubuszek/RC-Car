@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 #include "MKL05Z4.h"
-=======
 #include "InitDrive.h"
 
 void InitDrive(void){
@@ -15,4 +13,3 @@ void InitDrive(void){
     PTB->PDDR |= (rforward_mask | rreverse_mask | lforward_mask | lreverse_mask);
     PTB->PCOR = rforward_mask | rreverse_mask | lforward_mask | lreverse_mask;
 }
->>>>>>> origin/stanislaw
