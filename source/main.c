@@ -13,6 +13,7 @@
 
 
 volatile char rx_buffer[RX_BUFFER_SIZE];
+volatile char rx_buffer_copy[RX_BUFFER_SIZE];
 volatile uint8_t buff_index = 0;
 volatile uint8_t message_ready = 0;
 volatile uint8_t sekunda=0;
@@ -42,15 +43,20 @@ int main(){
     __enable_irq();
 
     while(1){
-        if(message_ready == 1){
-					if((rx_buffer[0] == 'F')||(rx_buffer[0] == 'B')||(rx_buffer[0] == 'Z')){
-            steering();
-					}else if(rx_buffer[0]-'0' < '5' || rx_buffer[0]== 'x'|| rx_buffer[0]== 'X'
-											|| rx_buffer[0]== 'u'|| rx_buffer[0]== 'U'){
-						light();
-					}
-            message_ready = 0;
-						
+		if(message_ready == 1){
+
+			__disable_irq();
+			strcpy((char*)rx_buffer_copy, (char*)rx_buffer);
+			message_ready = 0;
+			__enable_irq();
+
+			if((rx_buffer_copy[0] == 'F')||(rx_buffer_copy[0] == 'B')||(rx_buffer_copy[0] == 'Z')){
+				steering();
+			}else if(rx_buffer_copy[0]-'0' < '5' || rx_buffer_copy[0]== 'x'|| rx_buffer_copy[0]== 'X'
+				|| rx_buffer_copy[0]== 'u'|| rx_buffer_copy[0]== 'U'){
+					light();
+				}
+				
             // buff_index = 0;
             // UART0->C2 |= UART0_C2_RIE_MASK;
         }
@@ -92,7 +98,7 @@ void UART0_IRQHandler(void) {
 
     if (status & (UART0_S1_OR_MASK | UART0_S1_NF_MASK | UART0_S1_FE_MASK | UART0_S1_PF_MASK)) {
         volatile uint8_t dummy = UART0->D; //removing trash from errors
-        return; 
+        // return;
     }
 
     if (status & UART0_S1_RDRF_MASK) { //checking if a full byte arrived
@@ -115,12 +121,12 @@ void UART0_IRQHandler(void) {
     }
 }
 
-void SysTick_Handler(void)	// Podprogram obs³ugi przerwania od SysTick'a
+void SysTick_Handler(void)	// Podprogram obsï¿½ugi przerwania od SysTick'a
 { 
-	sekunda+=1;				// Licz interwa³y równe 100ms
+	sekunda+=1;				// Licz interwaï¿½y rï¿½wne 100ms
 	if(sekunda==5)
 	{
 		sekunda=0;
-		sekunda_OK=1;		// Daj znaæ, ¿e minê³a sekunda
+		sekunda_OK=1;		// Daj znaï¿½, ï¿½e minï¿½a sekunda
 	}
 }

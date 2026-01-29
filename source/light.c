@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void light(){
-	switch (rx_buffer[0]){
+	switch (rx_buffer_copy[0]){
 		case '1':
 			if(lb_active && !rb_active){
 				lb_active = 0;
